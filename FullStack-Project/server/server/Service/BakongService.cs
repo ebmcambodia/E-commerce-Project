@@ -37,7 +37,7 @@ public class BakongService : IPaymentService
         };
 
         var response = await _httpClient.PostAsJsonAsync(
-            "https://api‑bakong.nbc.kh/v1/payments", 
+            "https://api‑bakong.nbc.kh/v1/payments",
             payload
         );
 
@@ -52,16 +52,15 @@ public class BakongService : IPaymentService
     }
 
     // Verify payment status
-    public async Task<bool> VerifyPayment(string orderId, string paymentId)
+    public async Task<bool> VerifyPayment(string orderId, string paymentId, string? signature = null)
     {
         string token = _configuration["Bakong:Token"];
 
         _httpClient.DefaultRequestHeaders.Authorization =
             new AuthenticationHeaderValue("Bearer", token);
 
-        // Example GET request — will depend on Bakong API
         var response = await _httpClient.GetAsync(
-            $"https://api‑bakong.nbc.kh/v1/payments/status?orderId={orderId}&paymentId={paymentId}"
+            $"https://api-bakong.nbc.kh/v1/payments/status?orderId={orderId}&paymentId={paymentId}"
         );
 
         if (!response.IsSuccessStatusCode)
@@ -70,9 +69,9 @@ public class BakongService : IPaymentService
         var json = await response.Content.ReadAsStringAsync();
         using var doc = JsonDocument.Parse(json);
 
-        // Poll the response JSON — adjust according to actual API schema
         bool success = doc.RootElement.GetProperty("status").GetString() == "SUCCESS";
 
         return success;
     }
+
 }
