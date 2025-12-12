@@ -1,0 +1,51 @@
+table {
+    width: 100%;
+  }
+  
+  img {
+    margin-right: 16px;
+  }
+  
+  .mat-elevation-z8 {
+    margin-top: 16px;
+  }
+  
+  .badge-success {
+    color: white;
+    background-color: green;
+    padding: 4px;
+    border-radius: 4px;
+  }
+  
+  .badge-danger {
+    color: white;
+    background-color: red;
+    padding: 4px;
+    border-radius: 4px;
+  }
+  .price {
+    display: flex;
+    align-items: center;
+}
+
+.current-price {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.old-price {
+    margin-left: 5px;
+    font-size: 16px;
+    color: gray;
+    text-decoration: line-through;
+}
+.product-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+td 
+{
+    vertical-align: middle;
+}

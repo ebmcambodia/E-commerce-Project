@@ -1,0 +1,31 @@
+<!-- order-tracker.component.html -->
+<div class="order-tracker">
+    <div>
+        <mat-icon class="confirmed">shopping_cart</mat-icon><strong> Order Placed</strong>
+    </div>
+    <div class="separator"></div> <!-- Horizontal line div -->
+
+    <div [ngClass]="paymentStatus.toLowerCase()=='failed'?'failed':'confirmed'">
+        <mat-icon>payments</mat-icon><strong> Payments {{paymentStatus}}</strong>
+    </div>
+    <div class="separator"></div> <!-- Horizontal line div -->
+
+    <div>
+        <mat-icon>check_circle</mat-icon><strong> Order Confirmed</strong>
+    </div>
+    <div class="separator"></div> <!-- Horizontal line div -->
+
+    <div>
+        <mat-icon>local_shipping</mat-icon><strong> Shipped</strong>
+    </div>
+    <div class="separator"></div> <!-- Horizontal line div -->
+
+    <div>
+        <mat-icon>local_shipping</mat-icon><strong> Out For Delivery</strong>
+    </div>
+    <div class="separator"></div> <!-- Horizontal line div -->
+
+    <div>
+        <mat-icon>home</mat-icon><strong> Delivered</strong>
+    </div>
+</div>

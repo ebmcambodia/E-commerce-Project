@@ -1,0 +1,48 @@
+<div *ngIf="product" class="product-container container">
+    <div class="image-section">
+        <img [src]="product.thumbnail?.imageUrl|renderimg" alt="Product Image" class="main-image">
+        <!-- <div class="thumbnail-container">
+            <img src="image.png" alt="Thumbnail 1" class="thumbnail">
+            <img src="image.png" alt="Thumbnail 2" class="thumbnail">
+            <img src="image.png" alt="Thumbnail 3" class="thumbnail">
+            <img src="image.png" alt="Thumbnail 4" class="thumbnail">
+        </div> -->
+    </div>
+    <div class="details-section">
+        <p class="category">{{product.category.name}}</p>
+        <h1 class="product-title">{{product.name}}</h1>
+        <div class="reviews">
+            <span class="stars">★★★★★</span> <span class="reviews-count">({{product.totalReviews}} reviews)</span>
+        </div>
+        <div class="price-section">
+            <span class="current-price">{{product.newPrice|currency:'INR'}}</span>
+            <span class="old-price">{{product.originalPrice|currency:'INR'}}</span>
+            <span class="discount">{{product.discountPercentage}}% Off</span>
+        </div>
+        <!-- <div class="weight-options">
+            <button class="weight-btn">250g</button>
+            <button class="weight-btn">500g</button>
+            <button class="weight-btn">1kg</button>
+        </div> -->
+        <div class="quantity-section">
+            <button class="quantity-btn" (click)="updateQuantity(quantity-1)">-</button>
+            <input type="number" [(ngModel)]="quantity" min="1" max="10" class="quantity-input">
+            <button class="quantity-btn" (click)="updateQuantity(quantity+1)">+</button>
+        </div>
+        <div class="actions">
+            <button mat-raised-button class="app-btn-primary" (click)="addToCart(product.id)">Add To Cart</button>
+            <button mat-raised-button class="wishlist-btn" (click)="addToWishList(product.id)">
+                <mat-icon class="m-0">favorite</mat-icon>
+            </button>
+        </div>
+        <div class="product-info">
+            <p>Product Code: <span class="info-value">FBB00255</span></p>
+            <p>Availability: 
+                <span class="info-value" *ngIf="product.inStock">In Stock</span>
+                <span class="info-value" *ngIf="!product.inStock">Out Of Stock</span>
+            </p>
+            <p>Brand: <span class="info-value">{{product.brand.name}}</span></p>
+            <p>Shipping: <span class="info-value">01 day shipping. (Free pickup today)</span></p>
+        </div>
+    </div>
+</div>

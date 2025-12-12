@@ -1,0 +1,38 @@
+<mat-card class="product-card">
+    <!-- Discount Badge -->
+    <div class="badge-container" >
+      <span class="badge sale-badge" *ngIf="product.isFeatured">Featured</span>
+      <span class="badge mx-2" *ngIf="product.isOnDiscount">{{ product.discountPercentage }}%</span>
+    </div>
+  
+    <!-- Product Image -->
+    <!-- <img mat-card-image [src]="imageUrl+product.thumbnail?.imageUrl" alt="{{ product.name }}"> -->
+    <img mat-card-image [src]="product.thumbnail?.imageUrl|renderimg" alt="{{ product.name }}">
+
+    <!-- Action Buttons (View, Wishlist, Compare) -->
+    <div class="action-icons">
+      <button mat-icon-button matTooltip="View Details" [routerLink]="['product',product.id]"><mat-icon>visibility</mat-icon></button>
+      <button mat-icon-button matTooltip="Add To WishList" (click)="addToWishList(product.id)"><mat-icon>favorite</mat-icon></button>
+      <!-- <button mat-icon-button><mat-icon>compare_arrows</mat-icon></button> -->
+    </div>
+  
+    <!-- Product Details -->
+    <mat-card-content class="product-card-content">
+      <div class="category">{{ product.category.name }}</div>
+      <h2 class="product-name">{{ product.name }}</h2>
+      <div class="rating">
+        <s-rating [rating]="4"></s-rating>
+        <span class="rating-value">{{ product.averageRating }} ({{ product.totalReviews }})</span>
+      </div>
+    </mat-card-content>
+  
+    <!-- Price and Action Button -->
+    <mat-card-actions class="product-card-action">
+      <div class="price">
+        <span class="current-price">{{ product.newPrice|currency:'INR' }}</span>
+        <span class="old-price" *ngIf="product.originalPrice">{{ product.originalPrice|currency:'INR' }}</span>
+      </div>
+      <button mat-raised-button matTooltip="Add To Cart" class="app-btn-primary" (click)="addToCart(product.id)">+ Add</button>
+    </mat-card-actions>
+  </mat-card>
+  

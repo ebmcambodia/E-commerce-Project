@@ -1,0 +1,13 @@
+<div class="pagination-container">
+    <button mat-icon-button (click)="onPageChange(currentPage-1)" [disabled]="currentPage===0">
+        <mat-icon>chevron_left</mat-icon>
+    </button>
+    <button *ngFor="let page of getPaginationArray()" class="mat-page"
+        [class.mat-page-active]="currentPage===page" [disabled]="page===-1" (click)="onPageChange(page)">
+        <ng-container *ngIf="page!==-1">{{page+1}}</ng-container>
+        <ng-container *ngIf="page===-1">...</ng-container>
+    </button>
+    <button mat-icon-button (click)="onPageChange(currentPage+1)" [disabled]="currentPage===totalPages-1">
+        <mat-icon>chevron_right</mat-icon>
+    </button>
+</div>

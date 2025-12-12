@@ -1,0 +1,144 @@
+<div class="container mb-5">
+    <div class="my-3">
+        <app-order-tracker [paymentStatus]="details.paymentDetails.status"></app-order-tracker>
+    </div>
+    <div class="row">
+        <div class="col-7">
+            <mat-card class="mb-5">
+                <mat-card-content>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label fw-bold">Order Id</label>
+                        <div class="col-sm-10">
+                            <div class="form-control-plaintext">
+                                {{details.order.id}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label fw-bold">Cancel Order</label>
+                        <div class="col-sm-9"><button class="btn btn-danger">Cancel</button>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+            <ul class="list-group">
+                <li class="list-group-item app-btn-primary">
+                    <div class="row align-items-center">
+                        <div class="col-8 fw-bold">
+                            Product
+                        </div>
+                        <div class="col-2 fw-bold">
+                            Quantity
+                        </div>
+                        <div class="col-2 fw-bold text-lg-end text-start text-md-end">
+                            Price
+                        </div>
+
+                    </div>
+                </li>
+                <li class="list-group-item" *ngFor="let item of details.order.orderItems">
+                    <div class="row align-items-center">
+                        <div class="col-8">
+                            <div class="d-flex">
+                                <img [src]="item.product.thumbnail?.imageUrl|renderimg" [alt]="item.product.name"
+                                    class="icon-shape icon-xxl">
+                                <div class="pt-3">
+                                    <h5 class="mb-0 cart-item-title">{{item.product.name}}</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="qauntity-action">
+                                <span class="quantity">{{item.quantity}}</span>
+                            </div>
+                        </div>
+                        <!-- price -->
+                        <div class="col-2 text-lg-end text-start text-md-end">
+                            <div class="price">
+                                <span class="current-price">{{item.product.newPrice|currency:'INR'}}</span>
+                                <span
+                                    class="old-price ng-star-inserted">{{item.product.originalPrice|currency:'INR'}}</span>
+                            </div>
+                        </div>
+                        <!-- <div class="col-1">
+                            <mat-icon class="text-danger" matTooltip="Remove From Cart" (click)="removeCartItem(item.id)">delete</mat-icon>
+                        </div> -->
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col-5">
+
+            <mat-card>
+                <mat-card-header >
+                    <mat-card-title>Payment Details</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="form-group row">
+                        <label for="razorPayOrderId" class="col-sm-4 col-form-label fw-bold">razorPayOrderId</label>
+                        <div class="col-sm-8">
+                            <div class="form-control-plaintext">
+                                {{details.paymentDetails.razorPayOrderId}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="razorpay_payment_id" class="col-sm-4 col-form-label fw-bold">razorpay_payment_id</label>
+                        <div class="col-sm-8">
+                            <div class="form-control-plaintext">
+                                {{details.paymentDetails.razorpay_payment_id}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="razorpay_signature" class="col-sm-4 col-form-label fw-bold">razorpay_signature</label>
+                        <div class="col-sm-8">
+                            <div class="form-control-plaintext text-overflow">
+                                {{details.paymentDetails.razorpay_signature}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="amount" class="col-sm-4 col-form-label fw-bold">Amount</label>
+                        <div class="col-sm-8">
+                            <div class="form-control-plaintext" id="amount">
+                                {{details.paymentDetails.amount|currency:'INR'}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="payment-status" class="col-sm-4 col-form-label fw-bold">Status</label>
+                        <div class="col-sm-8">
+                            <div class="form-control-plaintext d-flex align-items-center" id="payment-status">
+                                <mat-chip>{{details.paymentDetails.status}}</mat-chip>
+                                <mat-icon class="text-primary" *ngIf="details.paymentDetails.status=='Pending'">refresh</mat-icon>
+                            </div>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+            <mat-card class="mt-5" *ngIf="details.shippingAddress as address">
+                <mat-card-header >
+                    <mat-card-title>Shipping Details</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <address>
+                        <strong>{{address.firstName+' '+address.lastName}}</strong>
+                        <br>
+                        {{address.addressLine1}},
+                        <br>
+                        {{address.addressLine2}}
+                        <br>
+                        <br>
+                        {{address.city}},{{address.state}}
+                        <br>
+                        {{address.country}}
+                        <br>
+                        <abbr title="Phone">zipcode: {{address.postalCode}}</abbr>
+                     </address>
+                </mat-card-content>
+
+             </mat-card>
+        </div>
+    </div>
+</div>

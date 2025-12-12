@@ -1,0 +1,48 @@
+<div class="home container">
+    <section class="carousel mt-5">
+      <owl-carousel-o [options]="bannerOptions">
+        <ng-container *ngFor="let slide of bannerStore">
+          <ng-template carouselSlide [id]="slide.id">
+            <img [src]="slide.src" alt="first slide" class="banner-c-img" style="display: block; width: 100%;">
+          </ng-template>
+        </ng-container>
+      </owl-carousel-o>
+    </section>
+    <section class="categories mt-5">
+         <div class="row">
+          <div class="col-12 mb-2">
+            <h1>Categories</h1>
+          </div>
+         </div>
+         <div class="row">
+          <owl-carousel-o [options]="customOptions">
+
+            <ng-container *ngFor="let slide of categories$|async">
+              <ng-template carouselSlide [id]="slide.id.toString()">
+                <mat-card class="owl-c-card" appearance="outlined">
+                  <img mat-card-image class="own-c-img" [src]="serveApi + slide.image?.imageUrl" [alt]="slide.name">
+                  <mat-card-content class="text-center">
+                    <p>
+                      {{slide.name}}
+                    </p>
+                  </mat-card-content>
+                </mat-card>
+              </ng-template>
+            </ng-container>
+        
+          </owl-carousel-o>
+         </div>
+    </section>
+    <section class="popular-product mt-5">
+      <div class="row">
+        <div class="col-12 mb-2">
+          <h1>Popular products</h1>
+        </div>
+       </div>
+       <div class="row">
+        <div class="product-grid-4 mb-5">
+          <app-product-card *ngFor="let p of products$|async" [product]="p"></app-product-card>
+      </div>
+       </div>
+    </section>
+</div>

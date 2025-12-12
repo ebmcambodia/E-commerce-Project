@@ -1,0 +1,22 @@
+.pagination-container{
+    display: flex;
+    align-items: center;
+}
+.mat-page {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 5px 12px;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    color: #6c757d;
+    cursor: pointer;
+}
+.mat-page-active,.mat-page:hover{
+    color: white;
+    background-color:  #0aad0a;
+}
+.mat-page:disabled{
+    border: none;
+    pointer-events: none;
+    opacity: 0.5;
+}

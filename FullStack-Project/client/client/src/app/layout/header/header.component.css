@@ -1,0 +1,68 @@
+.apexcart-logo-container {
+    width: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.apexcart-logo-container>img {
+    height: 2rem;
+    width: 2.5rem;
+}
+
+.app-header {
+    border-bottom: 1px solid #5c6c75;
+}
+
+.app-icon {
+    flex: 1;
+}
+
+.app-icon>img {
+    height: 3.5rem;
+}
+
+.search-form {
+    position: relative;
+    margin-left: 20px;
+}
+
+.search-icon {
+    margin-left: -35px !important;
+    z-index: 10;
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.search-results li {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.search-results li:hover {
+    background: #f0f0f0;
+}
+
+.router-link-active {
+    color: var(--primary-color) !important;
+}
+
+.categorie-btn {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+}

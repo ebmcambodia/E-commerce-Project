@@ -1,0 +1,102 @@
+<section class="mt-5 mb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="py-1 border-0 mb-8">
+                    <h2>Shop Cart</h2>                    
+                </div>       
+            </div>
+        </div>
+        <ng-container *ngIf="cart$|async as cart">
+         <ng-container *ngIf="cart.shoppingCartItems.length>0 ; else noProductTemplate">
+            <div class="row">
+                <div class="col-8">
+                    <ul class="list-group">
+                        <li class="list-group-item" *ngFor="let item of cart.shoppingCartItems">
+                            <div class="row align-items-center">
+                                <div class="col-7">
+                                   <div class="d-flex">
+                                      <img [src]="imageUrl+item.product.thumbnail?.imageUrl" [alt]="item.product.name" class="icon-shape icon-xxl">
+                                      <div class="pt-3">
+                                         <h5 class="mb-0 cart-item-title">{{item.product.name}}</h5>
+                                      </div>
+                                   </div>
+                                </div>
+                                <div class="col-2">
+                                   <div class="qauntity-action">
+                                    <button class="btn btn-sm" (click)="updateCartItem(item.id,item.quantity-1)" >
+                                       -
+                                    </button>
+                                    <span class="quantity">{{item.quantity}}</span>
+                                    <button class="btn btn-sm" (click)="updateCartItem(item.id,item.quantity+1)">
+                                       +
+                                    </button>
+                                   </div>
+                                </div>
+                                <!-- price -->
+                                <div class="col-2 text-lg-end text-start text-md-end">
+                                 <div class="price">
+                                    <span  class="current-price">{{item.product.newPrice|currency:'INR'}}</span>
+                                    <span class="old-price ng-star-inserted">{{item.product.originalPrice|currency:'INR'}}</span>
+                                 </div>
+                                </div>
+                                <div class="col-1">
+                                    <mat-icon class="text-danger" matTooltip="Remove From Cart" (click)="removeCartItem(item.id)">delete</mat-icon>
+                                </div>
+                             </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-4">
+                    <mat-card>
+                        <mat-card-header class="fw-bold mb-3">
+                            Summary
+                        </mat-card-header>
+                        <mat-card-content>
+                            <div>
+                                <ul class="list-group">
+                                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                                        <div class="me-auto">
+                                           <div>Item Subtotal</div>
+                                        </div>
+                                        <span>{{cart.totalPrice|currency:'INR'}}</span>
+                                     </li>
+                                     <li class="list-group-item d-flex justify-content-between align-items-start">
+                                        <div class="me-auto">
+                                           <div>Total Discount</div>
+                                        </div>
+                                        <span>{{cart.totalDiscount|currency:'INR'}}</span>
+                                     </li>
+                                     <li class="list-group-item d-flex justify-content-between align-items-start">
+                                        <div class="me-auto">
+                                           <div class="fw-bold">Subtotal</div>
+                                        </div>
+                                        <span class="fw-bold">{{cart.totalPriceAfterDiscount|currency:'INR'}}</span>
+                                     </li>
+                                </ul>
+                            </div>
+                            <button class="btn my-3 app-btn-primary w-100 checkout-btn" [routerLink]="['/checkout']" >Go To CheckOut <span>{{cart.totalPriceAfterDiscount|currency:'INR'}}</span></button>
+                            <p>
+                                <small>
+                                   By placing your order, you agree to be bound by the Apexcart
+                                   <a href="#!">Terms of Service</a>
+                                   and
+                                   <a href="#!">Privacy Policy.</a>
+                                </small>
+                             </p>
+
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+            </div>
+        </ng-container>
+        <ng-template #noProductTemplate>
+            <p>There are No products in this cart.</p>
+        </ng-template>
+        </ng-container>
+
+
+    </div>
+
+   
+</section>

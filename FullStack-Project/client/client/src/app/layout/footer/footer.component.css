@@ -1,0 +1,28 @@
+.footer{
+    background-color: #f0f3f2;;
+    padding: 4rem 0;
+}
+.footer {
+    background-color: #f0f3f2;
+    padding: 4rem 0
+}
+
+.footer .nav .nav-item .nav-link {
+    color:#5c6c75;
+    padding: 0
+}
+
+.footer .nav .nav-item .nav-link:hover {
+    color: #0aad0a;
+}
+
+.footer .social-links {
+    color: #5c6c75;
+}
+
+.footer .social-links:hover {
+    color:  #0aad0a;
+}
+h2{
+    font-size: 1rem;
+}

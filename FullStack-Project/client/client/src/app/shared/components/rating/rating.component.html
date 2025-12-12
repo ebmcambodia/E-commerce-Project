@@ -1,0 +1,6 @@
+<ng-container *ngFor="let star of [].constructor(rating)">
+    <mat-icon class="rating-star">star</mat-icon>
+  </ng-container>
+  <ng-container *ngFor="let star of [].constructor(5 - rating)">
+    <mat-icon class="rating-star">star_border</mat-icon>
+  </ng-container>

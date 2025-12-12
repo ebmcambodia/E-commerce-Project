@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="d-flex justify-content-center ">
+        Duration :- <input type="number" [min]="1000" [(ngModel)]="duration">
+    </div>
+    <div class="d-flex justify-content-center ">
+        <button type="button" class="btn btn-success" (click)="toast.Success('Success',duration)">Success</button>
+        <button type="button" class="btn btn-danger" (click)="toast.Error('Error',duration)">Error</button>
+        <button type="button" class="btn btn-warning" (click)="toast.Warning('Warning',duration)">Warning</button>
+        <button type="button" class="btn btn-info" (click)="toast.Info('Info',duration)">Info</button>
+    </div>
+</div>

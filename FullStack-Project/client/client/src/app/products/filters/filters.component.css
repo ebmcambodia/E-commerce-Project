@@ -1,0 +1,33 @@
+.filter-container{
+    padding: 0rem 1rem;
+    border: 1px solid rgba(115, 115, 115, 0.162);
+    border-radius: 1rem;
+}
+.filter-section{
+    margin: 1rem 0rem;
+    padding: 1rem;
+    border: 1px solid rgba(115, 115, 115, 0.162);
+    border-radius: 1rem;
+}
+.select-check-container{
+    border: 1px solid rgba(115, 115, 115, 0.162);
+    border-radius: 1rem;
+    max-height: 8rem;
+    overflow-y: scroll;
+}
+
+.filter-slider-container{
+    display: flex;
+    justify-content: center;
+}
+.filter-slider{
+    width: 90%;
+    margin: 0;
+    --mdc-slider-handle-color: white;
+    --mdc-slider-active-track-color: var(--primary-color);
+}
+
+.mat-button-toggle-checked{
+    color: white!important;
+    background-color: var(--primary-color)!important;
+}

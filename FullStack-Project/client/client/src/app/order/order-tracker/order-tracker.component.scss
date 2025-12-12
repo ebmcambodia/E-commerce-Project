@@ -1,0 +1,38 @@
+/* order-tracker.component.css */
+.order-tracker {
+    // max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    height: 10vh;
+    border-radius: 10px;
+    background-color: #fff;
+
+    display: flex
+;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  mat-icon {
+    vertical-align: middle;
+    margin-right: 8px;
+  }
+
+
+  .separator {
+    border-top-width: 1px;
+    border-top-style: solid;
+    flex: auto;
+    height: 0;
+    min-width: 32px;
+    background-color: #ddd; 
+    border-top-color:#ddd;
+}
+.confirmed{
+color: green;
+}
+
+.failed{
+  color: red;
+}
+
+  

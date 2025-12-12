@@ -1,0 +1,73 @@
+<form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
+    <mat-card class="shipping-card">
+        <mat-card-header>
+            <mat-card-title>Shipping Information</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="First name" formControlName="firstName">
+                        <mat-error *ngIf="addressForm.controls['firstName'].hasError('required')">
+                            First name is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Last name" formControlName="lastName">
+                        <mat-error *ngIf="addressForm.controls['lastName'].hasError('required')">
+                            Last name is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field class="full-width">
+                        <textarea matInput placeholder="Address" formControlName="address"></textarea>
+                        <mat-error *ngIf="addressForm.controls['address'].hasError('required')">
+                            Address is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field class="full-width">
+                        <textarea matInput placeholder="Address 2" formControlName="address2"></textarea>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="validationCustom03" class="form-label">City</label>
+                    <input type="text" class="form-control" formControlName="city" id="validationCustom03" required>
+                    <div class="invalid-feedback">
+                        Please provide a valid city.
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="validationCustom04" class="form-label">State</label>
+                    <select class="form-select" formControlName="state" required>
+                        <option selected disabled value="">Select State.</option>
+                        <option *ngFor="let state of states" [value]="state">{{state}}</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        Please select a valid state.
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="validationCustom05" class="form-label">Zip</label>
+                    <input type="text" class="form-control" id="validationCustom05" formControlName="postalCode" required>
+                    <div class="invalid-feedback">
+                      Please provide a valid zip.
+                    </div>
+                </div>
+            </div>
+        </mat-card-content>
+        <mat-card-actions class="mt-3">
+            <button mat-raised-button color="primary" type="submit">Submit</button>
+        </mat-card-actions>
+    </mat-card>
+</form>

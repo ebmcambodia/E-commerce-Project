@@ -1,0 +1,38 @@
+<section class="mt-5 mb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="py-1 border-0 mb-8">
+                    <h2>Your Orders</h2>
+                </div>       
+            </div>
+        </div>
+        <div class="row mt-5">
+            <table class="table">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Order Id</th>
+                        <th scope="col">Order Date</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">View</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let order of orders">
+                        <td>{{order.id}}</td>
+                        <td>{{order.orderDate| date: 'dd/MM/yyyy hh:mm'}}</td>
+                        <td class="text-primary">{{order.totalPriceAfterDiscount|currency:'INR'}}</td>
+                        <td>{{order.status}}</td>
+                        <td>      
+                            <button  mat-icon-button matTooltip="View Details"
+                             [routerLink]="['/orders/detail',order.id]"
+                            ><mat-icon >visibility</mat-icon></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</section>
