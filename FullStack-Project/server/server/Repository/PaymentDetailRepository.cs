@@ -18,9 +18,9 @@ namespace server.Repository
            return await contex.PaymentDetails.FirstOrDefaultAsync(x => x.OrderId == orderId);
         }
 
-        public async Task<PaymentDetails?> GetPaymentDetailsByRPId(string razorpayOrderId)
+        public async Task<PaymentDetails?> GetPaymentDetailsByRPId(string BakongOrderId)
         {
-           return await contex.PaymentDetails.FirstOrDefaultAsync(x => x.RazorPayOrderId == razorpayOrderId);
+           return await contex.PaymentDetails.FirstOrDefaultAsync(x => x.BakongOrderId == BakongOrderId);
         }
     }
 }
