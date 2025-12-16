@@ -1,5 +1,12 @@
 export const environment = {
-    baseApi:'https://localhost:7174/api',
-    imageBaseApi:'https://localhost:7174/',
-   
+  production: false,
+
+  api: {
+    base: 'https://localhost:7174/api',
+    image: 'https://localhost:7174/',
+  },
+
+  bakong: {
+    enabled: true,
+  }
 };
