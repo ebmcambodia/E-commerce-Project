@@ -72,8 +72,8 @@
                                     </div>
                                     <div class="col-3 text-lg-end text-start text-md-end col-md-3">
                                         <div class="price">
-                                            <span  class="current-price">{{item.product.newPrice|currency:'INR'}}</span>
-                                            <span class="old-price ng-star-inserted">{{item.product.originalPrice|currency:'INR'}}</span>
+                                            <span  class="current-price">{{item.product.newPrice|currency:'KHR'}}</span>
+                                            <span class="old-price ng-star-inserted">{{item.product.originalPrice|currency:'KHR'}}</span>
                                          </div>
                                     </div>
                                  </div>
@@ -82,18 +82,18 @@
                               <li class="list-group-item px-4 py-3">
                                  <div class="d-flex align-items-center justify-content-between mb-2">
                                     <div>Item Subtotal</div>
-                                    <div class="fw-bold">{{cart.totalPrice|currency:'INR'}}</div>
+                                    <div class="fw-bold">{{cart.totalPrice|currency:'KHR'}}</div>
                                  </div>
                                  <div class="d-flex align-items-center justify-content-between">
                                     <div>Total Discount</div>
-                                    <div class="fw-bold">{{cart.totalDiscount|currency:'INR'}}</div>
+                                    <div class="fw-bold">{{cart.totalDiscount|currency:'KHR'}}</div>
                                  </div>
                               </li>
                               <!-- list group item -->
                               <li class="list-group-item px-4 py-3">
                                  <div class="d-flex align-items-center justify-content-between fw-bold">
                                     <div>Subtotal</div>
-                                    <div>{{cart.totalPriceAfterDiscount|currency:'INR'}}</div>
+                                    <div>{{cart.totalPriceAfterDiscount|currency:'KHR'}}</div>
                                  </div>
                               </li>
                            </ul>

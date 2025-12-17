@@ -36,8 +36,8 @@
                                 <!-- price -->
                                 <div class="col-2 text-lg-end text-start text-md-end">
                                  <div class="price">
-                                    <span  class="current-price">{{item.product.newPrice|currency:'INR'}}</span>
-                                    <span class="old-price ng-star-inserted">{{item.product.originalPrice|currency:'INR'}}</span>
+                                    <span  class="current-price">{{item.product.newPrice|currency:'KHR'}}</span>
+                                    <span class="old-price ng-star-inserted">{{item.product.originalPrice|currency:'KHR'}}</span>
                                  </div>
                                 </div>
                                 <div class="col-1">
@@ -59,23 +59,23 @@
                                         <div class="me-auto">
                                            <div>Item Subtotal</div>
                                         </div>
-                                        <span>{{cart.totalPrice|currency:'INR'}}</span>
+                                        <span>{{cart.totalPrice|currency:'KHR'}}</span>
                                      </li>
                                      <li class="list-group-item d-flex justify-content-between align-items-start">
                                         <div class="me-auto">
                                            <div>Total Discount</div>
                                         </div>
-                                        <span>{{cart.totalDiscount|currency:'INR'}}</span>
+                                        <span>{{cart.totalDiscount|currency:'KHR'}}</span>
                                      </li>
                                      <li class="list-group-item d-flex justify-content-between align-items-start">
                                         <div class="me-auto">
                                            <div class="fw-bold">Subtotal</div>
                                         </div>
-                                        <span class="fw-bold">{{cart.totalPriceAfterDiscount|currency:'INR'}}</span>
+                                        <span class="fw-bold">{{cart.totalPriceAfterDiscount|currency:'KHR'}}</span>
                                      </li>
                                 </ul>
                             </div>
-                            <button class="btn my-3 app-btn-primary w-100 checkout-btn" [routerLink]="['/checkout']" >Go To CheckOut <span>{{cart.totalPriceAfterDiscount|currency:'INR'}}</span></button>
+                            <button class="btn my-3 app-btn-primary w-100 checkout-btn" [routerLink]="['/checkout']" >Go To CheckOut <span>{{cart.totalPriceAfterDiscount|currency:'KHR'}}</span></button>
                             <p>
                                 <small>
                                    By placing your order, you agree to be bound by the Apexcart
