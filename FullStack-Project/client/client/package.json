@@ -25,6 +25,7 @@
     "@ngrx/router-store": "^16.3.0",
     "@ngrx/store": "^16.3.0",
     "@ngrx/store-devtools": "^16.3.0",
+    "angularx-qrcode": "^21.0.4",
     "bootstrap": "^5.2.3",
     "ngx-bootstrap": "^11.0.2",
     "ngx-owl-carousel-o": "^16.0.0",

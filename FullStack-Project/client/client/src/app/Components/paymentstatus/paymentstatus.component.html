@@ -1,4 +1,6 @@
-<div class="container">
+
+
+<!-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-5">
             <div class="message-box _success">
@@ -23,4 +25,41 @@ be in contact with more details shortly </p>
     </div> 
 </div> 
 
-</div> 
+</div>  -->
+
+
+<div class="container mt-5">
+  <div class="row justify-content-center" *ngIf="status === 'PENDING'">
+    <div class="col-md-5 text-center">
+      <div class="message-box _success" style="border-bottom: solid 4px #007bff;">
+        <h2 style="font-size: 24px;">Scan to Pay</h2>
+        <img [src]="paymentData?.qrImage" class="img-fluid my-3" alt="Bakong QR">
+        <p>Amount: <strong>{{ paymentData?.amount | number }} KHR</strong></p>
+        <div class="spinner-border text-primary mt-3" role="status"></div>
+        <p class="mt-2"><small>Waiting for payment...</small></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center" *ngIf="status === 'SUCCESS'">
+    <div class="col-md-5">
+      <div class="message-box _success">
+        <i class="fa fa-check-circle" aria-hidden="true"></i>
+        <h2>Your payment was successful</h2>
+        <p>Thank you for your payment. We will be in contact with more details shortly.</p>
+        <button class="btn btn-success mt-4" (click)="router.navigate(['/'])">Back to Home</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center" *ngIf="status === 'FAILED'">
+    <div class="col-md-5">
+      <div class="message-box _success _failed">
+        <i class="fa fa-times-circle" aria-hidden="true"></i>
+        <h2>Your payment failed</h2>
+        <p>There was an issue processing your transaction. Please try again later.</p>
+        <button class="btn btn-danger mt-4" (click)="status = 'PENDING'; pollStatus()">Try Again</button>
+      </div>
+    </div>
+  </div>
+</div>

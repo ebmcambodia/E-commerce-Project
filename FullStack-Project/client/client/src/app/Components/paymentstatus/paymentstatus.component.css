@@ -1,4 +1,4 @@
-._failed{ border-bottom: solid 4px red !important; }
+/* ._failed{ border-bottom: solid 4px red !important; }
 ._failed i{  color:red !important;  }
 
 ._success {
@@ -28,4 +28,93 @@
     font-size: 18px;
     color: #495057;
     font-weight: 500;
+} */
+
+
+/* Container and Layout */
+.container {
+    margin-top: 50px;
+    padding-bottom: 50px;
+}
+
+/* Base Message Box Styles (Shared by Success, Failed, and Pending) */
+.message-box {
+    background: #ffffff;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+    padding: 45px;
+    width: 100%;
+    text-align: center;
+    margin: 20px auto;
+    border-radius: 8px; /* Added slight rounding for a modern look */
+    transition: all 0.3s ease;
+}
+
+/* Icon Base Style */
+.message-box i {
+    font-size: 65px; /* Slightly larger for impact */
+    margin-bottom: 20px;
+    display: block;
+}
+
+/* Typography */
+.message-box h2 {
+    margin-bottom: 12px;
+    font-size: 32px; /* Adjusted for better screen fitting */
+    font-weight: 600;
+    line-height: 1.2;
+    margin-top: 10px;
+}
+
+.message-box p {
+    margin-bottom: 0px;
+    font-size: 18px;
+    color: #495057;
+    font-weight: 500;
+}
+
+/* --- STATE: SUCCESS --- */
+._success {
+    border-bottom: solid 5px #28a745;
+}
+
+._success i {
+    color: #28a745;
+}
+
+/* --- STATE: FAILED --- */
+._failed {
+    border-bottom: solid 5px #dc3545; /* Standard bootstrap danger red */
+}
+
+._failed i {
+    color: #dc3545;
+}
+
+/* --- STATE: PENDING (QR Scanning) --- */
+._pending {
+    border-bottom: solid 5px #007bff; /* Blue for processing */
+}
+
+.qr-image-container {
+    padding: 15px;
+    background: #f8f9fa;
+    display: inline-block;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.qr-image-container img {
+    max-width: 250px;
+    height: auto;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 576px) {
+    .message-box {
+        padding: 30px 15px;
+    }
+    
+    .message-box h2 {
+        font-size: 24px;
+    }
 }
